@@ -1,2 +1,175 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+	<h5 class="my-0 mr-md-auto font-weight-normal">clinic</h5>
+	<!-- <nav class="my-2 my-md-0 mr-md-3">
+		<a class="p-2 text-dark" href="#">Features</a>
+		<a class="p-2 text-dark" href="#">Enterprise</a>
+		<a class="p-2 text-dark" href="#">Support</a>
+		<a class="p-2 text-dark" href="#">Pricing</a>
+	</nav> -->
+	<a class="btn btn-outline-primary" href="#">Sign up</a> | 
+	<a class="btn btn-outline-primary" href="#">Sign in</a>
+</div>
+
+
+<div class="container">
+	<div class="row">
+
+			<!-- Patient -->
+			<div class="col-md-6">
+				<h2 class="title text-center">PATIENT</h2><hr/><br/>
+		      <%= form_for(@patient, local: true) do |form| %>
+		        <% if @patient.errors.any? %>
+		          <div id="error_explanation">
+		            <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+		            <ul>
+		            <% @patient.errors.full_messages.each do |message| %>
+		              <li><%= message %></li>
+		            <% end %>
+		            </ul>
+		          </div>
+		        <% end %>
+
+		        <div class="form-group">
+		          <%= form.label :name %>
+		          <%= form.text_field :name, id: :patient_name, class: 'form-control' %>
+		        </div>
+
+		        <div class="form-group">
+		          <%= form.label :phone %>
+		          <%= form.text_field :phone, id: :patient_phone, class: 'form-control' %>
+		        </div>
+
+		        <div class="actions text-right">
+		          <%= form.submit 'Submit', class: 'btn btn-warning' %>
+		        </div>
+		      <% end %>
+    
+			</div>
+
+			<!-- Doctor -->
+			<div class="col-md-6">
+				<h2 class="title text-center">DOCTOR</h2><hr/><br/>
+		      <%= form_for(@doctor, local: true) do |form| %>
+		        <% if @doctor.errors.any? %>
+		          <div id="error_explanation">
+		            <h2><%= pluralize(doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
+
+		            <ul>
+		            <% @doctor.errors.full_messages.each do |message| %>
+		              <li><%= message %></li>
+		            <% end %>
+		            </ul>
+		          </div>
+		        <% end %>
+
+		        <div class="form-group">
+		          <%= form.label :name %>
+		          <%= form.text_field :name, id: :doctor_name, class: 'form-control' %>
+		        </div>
+
+		        <div class="form-group">
+		          <%= form.label :phone %>
+		          <%= form.text_field :phone, id: :doctor_phone, class: 'form-control' %>
+		        </div>
+
+		        <div class="form-group">
+		          <%= form.label :specialization %>
+		          <%= form.text_field :specialization, id: :doctor_specialization, class: 'form-control' %>
+		        </div>
+
+		        <div class="actions text-right">
+		          <%= form.submit 'Submit', class: 'btn btn-warning' %>
+		        </div>
+		      <% end %>
+    		</div>
+
+
+	</div>
+
+	<br/><br/>
+
+	<div class="row">
+		<!-- Patient -->
+			<div class="col-md-6">
+				<h2 class="title text-center">APPOINTMENT</h2><hr/><br/>
+		      
+    			<%= form_for(@appointment, local: true) do |form| %>
+			        <% if @appointment.errors.any? %>
+			          <div id="error_explanation">
+			            <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+			            <ul>
+			              <% @appointment.errors.full_messages.each do |message| %>
+			                <li><%= message %></li>
+			              <% end %>
+			            </ul>
+			          </div>
+			        <% end %>
+
+			        <div class="form-group">
+			          <%= form.label :appointment_date %><br>
+			          <%= form.date_select :appointment_date %>
+			        </div>
+			  
+			        <div class="form-group">
+			          <%= form.label :doctor_id %>
+			          <%= form.select :doctor_id, Doctor.all.collect {|t| [t.name, t.id]}, {prompt: '-- Select Doctor Name --'}, class: 'form-control' %>
+			        </div>
+
+			        <div class="form-group">
+			          <%= form.label :patient_id %>
+			          <%#= form.number_field :patient_id, id: :appointment_patient_id, class: 'form-control' %>
+			          <%= form.select :patient_id, Patient.all.collect {|t| [t.name, t.id]}, {prompt: '-- Select Patient Name --'}, class: 'form-control' %>
+			        </div>
+
+			        <div class="form-group">
+			          <%= form.label :diseases %>
+			          <%= form.text_field :diseases, id: :appointment_diseases, class: 'form-control' %>
+			        </div>
+
+			        <div class="actions">
+			          <%= form.submit 'Submit', class: 'btn btn-warning' %>
+			        </div>
+
+      			<% end %>
+			</div>
+
+			<!-- Doctor -->
+			<div class="col-md-6">
+				<h2 class="title text-center">VIEW APPOINTMENT</h2><hr/><br/>
+		      <%= form_for(@doctor, local: true) do |form| %>
+		        <% if @doctor.errors.any? %>
+		          <div id="error_explanation">
+		            <h2><%= pluralize(doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
+
+		            <ul>
+		            <% @doctor.errors.full_messages.each do |message| %>
+		              <li><%= message %></li>
+		            <% end %>
+		            </ul>
+		          </div>
+		        <% end %>
+
+		        <div class="form-group">
+		          <%= form.label :name %>
+		          <%= form.text_field :name, id: :doctor_name, class: 'form-control' %>
+		        </div>
+
+		        <div class="form-group">
+		          <%= form.label :phone %>
+		          <%= form.text_field :phone, id: :doctor_phone, class: 'form-control' %>
+		        </div>
+
+		        <div class="form-group">
+		          <%= form.label :specialization %>
+		          <%= form.text_field :specialization, id: :doctor_specialization, class: 'form-control' %>
+		        </div>
+
+		        <div class="actions text-right">
+		          <%= form.submit 'Submit', class: 'btn btn-warning' %>
+		        </div>
+		      <% end %>
+    		</div>
+	</div>
+</div><br/><br/>
