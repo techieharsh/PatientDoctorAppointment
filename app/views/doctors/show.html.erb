@@ -1,3 +1,6 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -15,5 +18,8 @@
   <%= @doctor.specialization %>
 </p>
 
-<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
-<%= link_to 'Back', doctors_path %>
+<%= link_to 'Edit', edit_doctor_path(@doctor), class: 'btn btn-info' %> |
+<%= link_to 'Back', doctors_path, class: 'btn btn-secondary' %>
+</div>
+	</div>
+</div>
