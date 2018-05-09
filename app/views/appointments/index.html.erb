@@ -8,7 +8,7 @@
         <table class="table table-bordered table-hover">
           <thead>
             <tr>
-              <th>Appointment Date</th>
+              <th>Appointment Date & Time</th>
               <th>Doctor Name</th>
               <th>Patient Name</th>
               <th>Diseases</th>
@@ -19,7 +19,8 @@
         <tbody>
           <% @appointments.each do |appointment| %>
             <tr>
-              <td><%= appointment.appointment_date %></td>
+              <!-- <td><%#= appointment.appointment_date %></td> -->
+              <td><%= appointment.appointment_time %></td>
               <td><%= appointment.doctor.name %></td>
               <td><%= appointment.patient.name %></td>
               <td><%= appointment.diseases %></td>

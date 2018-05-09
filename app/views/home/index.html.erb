@@ -1,18 +1,10 @@
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-	<h5 class="my-0 mr-md-auto font-weight-normal">clinic</h5>
-	<!-- <nav class="my-2 my-md-0 mr-md-3">
-		<a class="p-2 text-dark" href="#">Features</a>
-		<a class="p-2 text-dark" href="#">Enterprise</a>
-		<a class="p-2 text-dark" href="#">Support</a>
-		<a class="p-2 text-dark" href="#">Pricing</a>
-	</nav> -->
-	<a class="btn btn-outline-primary" href="#">Sign up</a> | 
-	<a class="btn btn-outline-primary" href="#">Sign in</a>
-</div>
 
+	<br/>
+	<br/>
 
-<div class="container">
-	<div class="row">
+	<div class="container">
+		
+		<div class="row">
 
 			<!-- Patient -->
 			<div class="col-md-6">
@@ -85,12 +77,12 @@
     		</div>
 
 
-	</div>
+		</div>
 
-	<br/><br/>
+		<br/><br/>
 
-	<div class="row">
-		<!-- Patient -->
+		<div class="row">
+		<!-- Appointment -->
 			<div class="col-md-6">
 				<h2 class="title text-center">APPOINTMENT</h2><hr/><br/>
 		      
@@ -107,10 +99,21 @@
 			          </div>
 			        <% end %>
 
-			        <div class="form-group">
-			          <%= form.label :appointment_date %><br>
-			          <%= form.date_select :appointment_date %>
+			        <div class="row">
+			        	<div class="col-md-6">
+			        		<div class="form-group">
+					          <%= form.label :appointment_date %><br>
+					          <%= form.date_select :appointment_date, class: 'form-control' %>
+					        </div>
+			        	</div>
+			        	<div class="col-md-6">
+			        		<div class="form-group">
+					          <%= form.label :appointment_time %><br>
+					          <%= form.date_select :appointment_time %>
+					        </div>
+			        	</div>
 			        </div>
+			        
 			  
 			        <div class="form-group">
 			          <%= form.label :doctor_id %>
@@ -171,5 +174,7 @@
 		        </div>
 		      <% end %>
     		</div>
+		</div>
 	</div>
-</div><br/><br/>
+	<br/>
+	<br/>
